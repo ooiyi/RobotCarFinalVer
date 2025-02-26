@@ -1,0 +1,993 @@
+
+RobotCarFinalVer.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000046a  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000002  00800060  0000046a  000004fe  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000000d  00800062  00800062  00000500  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000500  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000050  00000000  00000000  00000530  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000007f2  00000000  00000000  00000580  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000001a8  00000000  00000000  00000d72  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002bf  00000000  00000000  00000f1a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000a4  00000000  00000000  000011dc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000240  00000000  00000000  00001280  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000006f0  00000000  00000000  000014c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000000a0  00000000  00000000  00001bb0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 38 00 	jmp	0x70	; 0x70 <__ctors_end>
+   4:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+   8:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+   c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  10:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  14:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  18:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  1c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  20:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  24:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  28:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  2c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  30:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  34:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  38:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  3c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  40:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  44:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  48:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  4c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  50:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  54:	62 00       	.word	0x0062	; ????
+  56:	65 00       	.word	0x0065	; ????
+  58:	68 00       	.word	0x0068	; ????
+  5a:	6b 00       	.word	0x006b	; ????
+  5c:	6e 00       	.word	0x006e	; ????
+  5e:	71 00       	.word	0x0071	; ????
+  60:	74 00       	.word	0x0074	; ????
+  62:	a0 00       	.word	0x00a0	; ????
+  64:	a2 00       	.word	0x00a2	; ????
+  66:	a4 00       	.word	0x00a4	; ????
+  68:	a6 00       	.word	0x00a6	; ????
+  6a:	a8 00       	.word	0x00a8	; ????
+  6c:	aa 00       	.word	0x00aa	; ????
+  6e:	ac 00       	.word	0x00ac	; ????
+
+00000070 <__ctors_end>:
+  70:	11 24       	eor	r1, r1
+  72:	1f be       	out	0x3f, r1	; 63
+  74:	cf e5       	ldi	r28, 0x5F	; 95
+  76:	d8 e0       	ldi	r29, 0x08	; 8
+  78:	de bf       	out	0x3e, r29	; 62
+  7a:	cd bf       	out	0x3d, r28	; 61
+
+0000007c <__do_copy_data>:
+  7c:	10 e0       	ldi	r17, 0x00	; 0
+  7e:	a0 e6       	ldi	r26, 0x60	; 96
+  80:	b0 e0       	ldi	r27, 0x00	; 0
+  82:	ea e6       	ldi	r30, 0x6A	; 106
+  84:	f4 e0       	ldi	r31, 0x04	; 4
+  86:	02 c0       	rjmp	.+4      	; 0x8c <__do_copy_data+0x10>
+  88:	05 90       	lpm	r0, Z+
+  8a:	0d 92       	st	X+, r0
+  8c:	a2 36       	cpi	r26, 0x62	; 98
+  8e:	b1 07       	cpc	r27, r17
+  90:	d9 f7       	brne	.-10     	; 0x88 <__do_copy_data+0xc>
+
+00000092 <__do_clear_bss>:
+  92:	20 e0       	ldi	r18, 0x00	; 0
+  94:	a2 e6       	ldi	r26, 0x62	; 98
+  96:	b0 e0       	ldi	r27, 0x00	; 0
+  98:	01 c0       	rjmp	.+2      	; 0x9c <.do_clear_bss_start>
+
+0000009a <.do_clear_bss_loop>:
+  9a:	1d 92       	st	X+, r1
+
+0000009c <.do_clear_bss_start>:
+  9c:	af 36       	cpi	r26, 0x6F	; 111
+  9e:	b2 07       	cpc	r27, r18
+  a0:	e1 f7       	brne	.-8      	; 0x9a <.do_clear_bss_loop>
+  a2:	0e 94 c7 00 	call	0x18e	; 0x18e <main>
+  a6:	0c 94 33 02 	jmp	0x466	; 0x466 <_exit>
+
+000000aa <__bad_interrupt>:
+  aa:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ae <radiationCountDisplay>:
+}
+
+void radiationCountDisplay()
+{
+	
+	switch(radiationCount)
+  ae:	80 91 6e 00 	lds	r24, 0x006E
+  b2:	90 e0       	ldi	r25, 0x00	; 0
+  b4:	87 30       	cpi	r24, 0x07	; 7
+  b6:	91 05       	cpc	r25, r1
+  b8:	d0 f4       	brcc	.+52     	; 0xee <radiationCountDisplay+0x40>
+  ba:	fc 01       	movw	r30, r24
+  bc:	e6 5d       	subi	r30, 0xD6	; 214
+  be:	ff 4f       	sbci	r31, 0xFF	; 255
+  c0:	0c 94 2d 02 	jmp	0x45a	; 0x45a <__tablejump2__>
+	{
+		case 0:
+		PORTD = 0x3F;
+  c4:	8f e3       	ldi	r24, 0x3F	; 63
+  c6:	82 bb       	out	0x12, r24	; 18
+		break;
+  c8:	08 95       	ret
+		
+		case 1:
+		PORTD = 0x06;
+  ca:	86 e0       	ldi	r24, 0x06	; 6
+  cc:	82 bb       	out	0x12, r24	; 18
+		break;
+  ce:	08 95       	ret
+		
+		case 2:
+		PORTD = 0x5B;
+  d0:	8b e5       	ldi	r24, 0x5B	; 91
+  d2:	82 bb       	out	0x12, r24	; 18
+		break;
+  d4:	08 95       	ret
+		
+		case 3:
+		PORTD = 0x4F;
+  d6:	8f e4       	ldi	r24, 0x4F	; 79
+  d8:	82 bb       	out	0x12, r24	; 18
+		break;
+  da:	08 95       	ret
+		
+		case 4:
+		PORTD = 0x66;
+  dc:	86 e6       	ldi	r24, 0x66	; 102
+  de:	82 bb       	out	0x12, r24	; 18
+		break;
+  e0:	08 95       	ret
+		
+		case 5:
+		PORTD = 0x6D;
+  e2:	8d e6       	ldi	r24, 0x6D	; 109
+  e4:	82 bb       	out	0x12, r24	; 18
+		break;
+  e6:	08 95       	ret
+		
+		case 6:
+		PORTD = 0x7D;
+  e8:	8d e7       	ldi	r24, 0x7D	; 125
+  ea:	82 bb       	out	0x12, r24	; 18
+		break;
+  ec:	08 95       	ret
+		
+		default:
+		PORTD = 0xFF;
+  ee:	8f ef       	ldi	r24, 0xFF	; 255
+  f0:	82 bb       	out	0x12, r24	; 18
+  f2:	08 95       	ret
+
+000000f4 <affectedGridDisplay>:
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+}
+
+void affectedGridDisplay()
+{
+  f4:	ef 92       	push	r14
+  f6:	ff 92       	push	r15
+  f8:	0f 93       	push	r16
+  fa:	1f 93       	push	r17
+  fc:	cf 93       	push	r28
+  fe:	df 93       	push	r29
+	for (int j = 0; j < radiationCount; j++)
+ 100:	80 91 6e 00 	lds	r24, 0x006E
+ 104:	88 23       	and	r24, r24
+ 106:	e1 f1       	breq	.+120    	; 0x180 <affectedGridDisplay+0x8c>
+ 108:	0f 2e       	mov	r0, r31
+ 10a:	f7 e6       	ldi	r31, 0x67	; 103
+ 10c:	ef 2e       	mov	r14, r31
+ 10e:	f0 e0       	ldi	r31, 0x00	; 0
+ 110:	ff 2e       	mov	r15, r31
+ 112:	f0 2d       	mov	r31, r0
+ 114:	20 e0       	ldi	r18, 0x00	; 0
+ 116:	30 e0       	ldi	r19, 0x00	; 0
+			case 6:
+			PORTA = 0x7D;
+			break;
+			
+			default:
+			PORTA = 0xFF;
+ 118:	0f ef       	ldi	r16, 0xFF	; 255
+			case 5:
+			PORTA = 0x6D;
+			break;
+			
+			case 6:
+			PORTA = 0x7D;
+ 11a:	1d e7       	ldi	r17, 0x7D	; 125
+			case 4:
+			PORTA = 0x66;
+			break;
+			
+			case 5:
+			PORTA = 0x6D;
+ 11c:	dd e6       	ldi	r29, 0x6D	; 109
+			case 3:
+			PORTA = 0x4F;
+			break;
+			
+			case 4:
+			PORTA = 0x66;
+ 11e:	c6 e6       	ldi	r28, 0x66	; 102
+			case 2:
+			PORTA = 0x5B;
+			break;
+			
+			case 3:
+			PORTA = 0x4F;
+ 120:	7f e4       	ldi	r23, 0x4F	; 79
+			case 1:
+			PORTA = 0x06;
+			break;
+			
+			case 2:
+			PORTA = 0x5B;
+ 122:	6b e5       	ldi	r22, 0x5B	; 91
+			case 0:
+			PORTA = 0x3F;
+			break;
+			
+			case 1:
+			PORTA = 0x06;
+ 124:	56 e0       	ldi	r21, 0x06	; 6
+		uint8_t grid = affectedGrid[j];
+		
+		switch(grid)
+		{
+			case 0:
+			PORTA = 0x3F;
+ 126:	4f e3       	ldi	r20, 0x3F	; 63
+
+void affectedGridDisplay()
+{
+	for (int j = 0; j < radiationCount; j++)
+	{
+		uint8_t grid = affectedGrid[j];
+ 128:	f7 01       	movw	r30, r14
+ 12a:	81 91       	ld	r24, Z+
+ 12c:	7f 01       	movw	r14, r30
+		
+		switch(grid)
+ 12e:	90 e0       	ldi	r25, 0x00	; 0
+ 130:	87 30       	cpi	r24, 0x07	; 7
+ 132:	91 05       	cpc	r25, r1
+ 134:	98 f4       	brcc	.+38     	; 0x15c <affectedGridDisplay+0x68>
+ 136:	8f 5c       	subi	r24, 0xCF	; 207
+ 138:	9f 4f       	sbci	r25, 0xFF	; 255
+ 13a:	fc 01       	movw	r30, r24
+ 13c:	0c 94 2d 02 	jmp	0x45a	; 0x45a <__tablejump2__>
+		{
+			case 0:
+			PORTA = 0x3F;
+ 140:	4b bb       	out	0x1b, r20	; 27
+			break;
+ 142:	0d c0       	rjmp	.+26     	; 0x15e <affectedGridDisplay+0x6a>
+			
+			case 1:
+			PORTA = 0x06;
+ 144:	5b bb       	out	0x1b, r21	; 27
+			break;
+ 146:	0b c0       	rjmp	.+22     	; 0x15e <affectedGridDisplay+0x6a>
+			
+			case 2:
+			PORTA = 0x5B;
+ 148:	6b bb       	out	0x1b, r22	; 27
+			break;
+ 14a:	09 c0       	rjmp	.+18     	; 0x15e <affectedGridDisplay+0x6a>
+			
+			case 3:
+			PORTA = 0x4F;
+ 14c:	7b bb       	out	0x1b, r23	; 27
+			break;
+ 14e:	07 c0       	rjmp	.+14     	; 0x15e <affectedGridDisplay+0x6a>
+			
+			case 4:
+			PORTA = 0x66;
+ 150:	cb bb       	out	0x1b, r28	; 27
+			break;
+ 152:	05 c0       	rjmp	.+10     	; 0x15e <affectedGridDisplay+0x6a>
+			
+			case 5:
+			PORTA = 0x6D;
+ 154:	db bb       	out	0x1b, r29	; 27
+			break;
+ 156:	03 c0       	rjmp	.+6      	; 0x15e <affectedGridDisplay+0x6a>
+			
+			case 6:
+			PORTA = 0x7D;
+ 158:	1b bb       	out	0x1b, r17	; 27
+			break;
+ 15a:	01 c0       	rjmp	.+2      	; 0x15e <affectedGridDisplay+0x6a>
+			
+			default:
+			PORTA = 0xFF;
+ 15c:	0b bb       	out	0x1b, r16	; 27
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 15e:	ff ef       	ldi	r31, 0xFF	; 255
+ 160:	89 e6       	ldi	r24, 0x69	; 105
+ 162:	98 e1       	ldi	r25, 0x18	; 24
+ 164:	f1 50       	subi	r31, 0x01	; 1
+ 166:	80 40       	sbci	r24, 0x00	; 0
+ 168:	90 40       	sbci	r25, 0x00	; 0
+ 16a:	e1 f7       	brne	.-8      	; 0x164 <affectedGridDisplay+0x70>
+ 16c:	00 c0       	rjmp	.+0      	; 0x16e <affectedGridDisplay+0x7a>
+ 16e:	00 00       	nop
+	PORTC = 0b00000000; //Reset Motor
+}
+
+void affectedGridDisplay()
+{
+	for (int j = 0; j < radiationCount; j++)
+ 170:	2f 5f       	subi	r18, 0xFF	; 255
+ 172:	3f 4f       	sbci	r19, 0xFF	; 255
+ 174:	80 91 6e 00 	lds	r24, 0x006E
+ 178:	90 e0       	ldi	r25, 0x00	; 0
+ 17a:	28 17       	cp	r18, r24
+ 17c:	39 07       	cpc	r19, r25
+ 17e:	a4 f2       	brlt	.-88     	; 0x128 <affectedGridDisplay+0x34>
+			default:
+			PORTA = 0xFF;
+		}
+		_delay_ms(8000);
+	}
+ 180:	df 91       	pop	r29
+ 182:	cf 91       	pop	r28
+ 184:	1f 91       	pop	r17
+ 186:	0f 91       	pop	r16
+ 188:	ff 90       	pop	r15
+ 18a:	ef 90       	pop	r14
+ 18c:	08 95       	ret
+
+0000018e <main>:
+//PB5 = Displat button
+//PB1 = Black line sensor
+//PB0 = Radiation Sensor
+int main(void)
+{
+	DDRA = 0xFF; //PortA Output
+ 18e:	8f ef       	ldi	r24, 0xFF	; 255
+ 190:	8a bb       	out	0x1a, r24	; 26
+	DDRB = 0x00; //PortB Input
+ 192:	17 ba       	out	0x17, r1	; 23
+	DDRC = 0xFF; //PortC Output
+ 194:	84 bb       	out	0x14, r24	; 20
+	DDRD = 0xFF; //PortD Output
+ 196:	81 bb       	out	0x11, r24	; 17
+	
+    while(1)
+    {	
+		if(PINB &= 0b00010000){
+			ProgramCondition = 1;		// Enable the main program
+ 198:	31 e0       	ldi	r19, 0x01	; 1
+		PORTD = 0xFF;
+	}
+}
+
+void MotorForward(){
+	PORTC = 0b10000010; //Move Forward
+ 19a:	22 e8       	ldi	r18, 0x82	; 130
+				}
+			}
+				if ((PINB &= 0b00000010)){			// If blackLine sensor detected blackLine
+					BlackLineCount++;				// Black line count + 1
+					Scan=1;							// Enable radiation scanning
+					PORTD=0b10000000;				// Red LED on
+ 19c:	a0 e8       	ldi	r26, 0x80	; 128
+						MotorLeft();
+						_delay_ms(6500);				// Turn left
+						MotorReset();
+						_delay_ms(2000);
+						Scan=0;							// Disable scan function
+					}else if(BlackLineCount==6){
+ 19e:	75 e0       	ldi	r23, 0x05	; 5
+ 1a0:	60 e0       	ldi	r22, 0x00	; 0
+void MotorForward(){
+	PORTC = 0b10000010; //Move Forward
+}
+
+void MotorBackward(){
+	PORTC = 0b01000001; //Move Backward
+ 1a2:	51 e4       	ldi	r21, 0x41	; 65
+}
+
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+ 1a4:	42 e4       	ldi	r20, 0x42	; 66
+					_delay_ms(1000);
+					PORTD=0x00;						// Red LED off
+
+					if(BlackLineCount==1 || BlackLineCount==2 || BlackLineCount== 3 || BlackLineCount==5 || BlackLineCount==7 || BlackLineCount==8){
+						location++;
+						if(radiationCount<=5){
+ 1a6:	d7 e0       	ldi	r29, 0x07	; 7
+ 1a8:	c0 e0       	ldi	r28, 0x00	; 0
+	DDRC = 0xFF; //PortC Output
+	DDRD = 0xFF; //PortD Output
+	
+    while(1)
+    {	
+		if(PINB &= 0b00010000){
+ 1aa:	86 b3       	in	r24, 0x16	; 22
+ 1ac:	80 71       	andi	r24, 0x10	; 16
+ 1ae:	86 bb       	out	0x16, r24	; 22
+ 1b0:	88 23       	and	r24, r24
+ 1b2:	59 f0       	breq	.+22     	; 0x1ca <main+0x3c>
+			ProgramCondition = 1;		// Enable the main program
+ 1b4:	30 93 65 00 	sts	0x0065, r19
+ 1b8:	8f e7       	ldi	r24, 0x7F	; 127
+ 1ba:	9a e1       	ldi	r25, 0x1A	; 26
+ 1bc:	b6 e0       	ldi	r27, 0x06	; 6
+ 1be:	81 50       	subi	r24, 0x01	; 1
+ 1c0:	90 40       	sbci	r25, 0x00	; 0
+ 1c2:	b0 40       	sbci	r27, 0x00	; 0
+ 1c4:	e1 f7       	brne	.-8      	; 0x1be <main+0x30>
+ 1c6:	00 c0       	rjmp	.+0      	; 0x1c8 <main+0x3a>
+ 1c8:	00 00       	nop
+			_delay_ms(2000);			
+		}
+		
+		if(BlackLineCount>=9){
+ 1ca:	80 91 66 00 	lds	r24, 0x0066
+ 1ce:	89 30       	cpi	r24, 0x09	; 9
+ 1d0:	e0 f0       	brcs	.+56     	; 0x20a <main+0x7c>
+			ProgramCondition = 0;		// Disable the main program
+ 1d2:	10 92 65 00 	sts	0x0065, r1
+			if(k==0){
+ 1d6:	80 91 62 00 	lds	r24, 0x0062
+ 1da:	81 11       	cpse	r24, r1
+ 1dc:	10 c0       	rjmp	.+32     	; 0x1fe <main+0x70>
+		PORTD = 0xFF;
+	}
+}
+
+void MotorForward(){
+	PORTC = 0b10000010; //Move Forward
+ 1de:	25 bb       	out	0x15, r18	; 21
+ 1e0:	ef e7       	ldi	r30, 0x7F	; 127
+ 1e2:	ff e4       	ldi	r31, 0x4F	; 79
+ 1e4:	82 e1       	ldi	r24, 0x12	; 18
+ 1e6:	e1 50       	subi	r30, 0x01	; 1
+ 1e8:	f0 40       	sbci	r31, 0x00	; 0
+ 1ea:	80 40       	sbci	r24, 0x00	; 0
+ 1ec:	e1 f7       	brne	.-8      	; 0x1e6 <main+0x58>
+ 1ee:	00 c0       	rjmp	.+0      	; 0x1f0 <main+0x62>
+ 1f0:	00 00       	nop
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+}
+
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+ 1f2:	15 ba       	out	0x15, r1	; 21
+			ProgramCondition = 0;		// Disable the main program
+			if(k==0){
+				MotorForward();			// Moving out from the 6th box
+				_delay_ms(6000);
+				MotorReset();			// Stop moving
+				k++;
+ 1f4:	80 91 62 00 	lds	r24, 0x0062
+ 1f8:	8f 5f       	subi	r24, 0xFF	; 255
+ 1fa:	80 93 62 00 	sts	0x0062, r24
+			}
+			if (PINB &= 0b00100000){
+ 1fe:	86 b3       	in	r24, 0x16	; 22
+ 200:	80 72       	andi	r24, 0x20	; 32
+ 202:	86 bb       	out	0x16, r24	; 22
+ 204:	81 11       	cpse	r24, r1
+				DisplayCondition = 1;	// Enable the display program
+ 206:	30 93 64 00 	sts	0x0064, r19
+			}
+		}
+		
+		if(ProgramCondition==1){
+ 20a:	80 91 65 00 	lds	r24, 0x0065
+ 20e:	81 30       	cpi	r24, 0x01	; 1
+ 210:	09 f0       	breq	.+2      	; 0x214 <main+0x86>
+ 212:	12 c1       	rjmp	.+548    	; 0x438 <main+0x2aa>
+		PORTD = 0xFF;
+	}
+}
+
+void MotorForward(){
+	PORTC = 0b10000010; //Move Forward
+ 214:	25 bb       	out	0x15, r18	; 21
+ 216:	9f e8       	ldi	r25, 0x8F	; 143
+ 218:	bf e5       	ldi	r27, 0x5F	; 95
+ 21a:	e1 e0       	ldi	r30, 0x01	; 1
+ 21c:	91 50       	subi	r25, 0x01	; 1
+ 21e:	b0 40       	sbci	r27, 0x00	; 0
+ 220:	e0 40       	sbci	r30, 0x00	; 0
+ 222:	e1 f7       	brne	.-8      	; 0x21c <main+0x8e>
+ 224:	00 c0       	rjmp	.+0      	; 0x226 <main+0x98>
+ 226:	00 00       	nop
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+}
+
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+ 228:	15 ba       	out	0x15, r1	; 21
+ 22a:	ff e5       	ldi	r31, 0x5F	; 95
+ 22c:	8e ea       	ldi	r24, 0xAE	; 174
+ 22e:	9a e0       	ldi	r25, 0x0A	; 10
+ 230:	f1 50       	subi	r31, 0x01	; 1
+ 232:	80 40       	sbci	r24, 0x00	; 0
+ 234:	90 40       	sbci	r25, 0x00	; 0
+ 236:	e1 f7       	brne	.-8      	; 0x230 <main+0xa2>
+ 238:	00 c0       	rjmp	.+0      	; 0x23a <main+0xac>
+ 23a:	00 00       	nop
+		if(ProgramCondition==1){
+			MotorForward();				// The robot moving forward
+			_delay_ms(450);
+			MotorReset();				// The robot stop moving
+			_delay_ms(3500);
+			if(PINB &= 0b00010000){		// Stop button 
+ 23c:	86 b3       	in	r24, 0x16	; 22
+ 23e:	80 71       	andi	r24, 0x10	; 16
+ 240:	86 bb       	out	0x16, r24	; 22
+ 242:	88 23       	and	r24, r24
+ 244:	91 f0       	breq	.+36     	; 0x26a <main+0xdc>
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+}
+
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+ 246:	15 ba       	out	0x15, r1	; 21
+				while(1){
+					if(PINB &= 0b00100000){			// Display button
+						radiationCountDisplay();	// Show the total radiation area counted
+						
+						if(radiationCount==0){
+							PORTA = 0x3F;
+ 248:	cf e3       	ldi	r28, 0x3F	; 63
+			MotorReset();				// The robot stop moving
+			_delay_ms(3500);
+			if(PINB &= 0b00010000){		// Stop button 
+				MotorReset();			
+				while(1){
+					if(PINB &= 0b00100000){			// Display button
+ 24a:	86 b3       	in	r24, 0x16	; 22
+ 24c:	80 72       	andi	r24, 0x20	; 32
+ 24e:	86 bb       	out	0x16, r24	; 22
+ 250:	88 23       	and	r24, r24
+ 252:	d9 f3       	breq	.-10     	; 0x24a <main+0xbc>
+						radiationCountDisplay();	// Show the total radiation area counted
+ 254:	0e 94 57 00 	call	0xae	; 0xae <radiationCountDisplay>
+						
+						if(radiationCount==0){
+ 258:	80 91 6e 00 	lds	r24, 0x006E
+ 25c:	81 11       	cpse	r24, r1
+ 25e:	02 c0       	rjmp	.+4      	; 0x264 <main+0xd6>
+							PORTA = 0x3F;
+ 260:	cb bb       	out	0x1b, r28	; 27
+ 262:	f3 cf       	rjmp	.-26     	; 0x24a <main+0xbc>
+						}else{
+							affectedGridDisplay();	// Show the location of boxes that affected by radiation
+ 264:	0e 94 7a 00 	call	0xf4	; 0xf4 <affectedGridDisplay>
+ 268:	f0 cf       	rjmp	.-32     	; 0x24a <main+0xbc>
+						}
+					}
+				}
+			}
+				if ((PINB &= 0b00000010)){			// If blackLine sensor detected blackLine
+ 26a:	86 b3       	in	r24, 0x16	; 22
+ 26c:	82 70       	andi	r24, 0x02	; 2
+ 26e:	86 bb       	out	0x16, r24	; 22
+ 270:	88 23       	and	r24, r24
+ 272:	09 f4       	brne	.+2      	; 0x276 <main+0xe8>
+ 274:	e1 c0       	rjmp	.+450    	; 0x438 <main+0x2aa>
+					BlackLineCount++;				// Black line count + 1
+ 276:	80 91 66 00 	lds	r24, 0x0066
+ 27a:	8f 5f       	subi	r24, 0xFF	; 255
+ 27c:	80 93 66 00 	sts	0x0066, r24
+					Scan=1;							// Enable radiation scanning
+ 280:	30 93 60 00 	sts	0x0060, r19
+					PORTD=0b10000000;				// Red LED on
+ 284:	a2 bb       	out	0x12, r26	; 18
+ 286:	bf e3       	ldi	r27, 0x3F	; 63
+ 288:	ed e0       	ldi	r30, 0x0D	; 13
+ 28a:	f3 e0       	ldi	r31, 0x03	; 3
+ 28c:	b1 50       	subi	r27, 0x01	; 1
+ 28e:	e0 40       	sbci	r30, 0x00	; 0
+ 290:	f0 40       	sbci	r31, 0x00	; 0
+ 292:	e1 f7       	brne	.-8      	; 0x28c <main+0xfe>
+ 294:	00 c0       	rjmp	.+0      	; 0x296 <main+0x108>
+ 296:	00 00       	nop
+					_delay_ms(1000);
+					PORTD=0x00;						// Red LED off
+ 298:	12 ba       	out	0x12, r1	; 18
+
+					if(BlackLineCount==1 || BlackLineCount==2 || BlackLineCount== 3 || BlackLineCount==5 || BlackLineCount==7 || BlackLineCount==8){
+ 29a:	80 91 66 00 	lds	r24, 0x0066
+ 29e:	9f ef       	ldi	r25, 0xFF	; 255
+ 2a0:	98 0f       	add	r25, r24
+ 2a2:	93 30       	cpi	r25, 0x03	; 3
+ 2a4:	30 f0       	brcs	.+12     	; 0x2b2 <main+0x124>
+ 2a6:	85 30       	cpi	r24, 0x05	; 5
+ 2a8:	21 f0       	breq	.+8      	; 0x2b2 <main+0x124>
+ 2aa:	87 50       	subi	r24, 0x07	; 7
+ 2ac:	82 30       	cpi	r24, 0x02	; 2
+ 2ae:	08 f0       	brcs	.+2      	; 0x2b2 <main+0x124>
+ 2b0:	4a c0       	rjmp	.+148    	; 0x346 <main+0x1b8>
+						location++;
+ 2b2:	80 91 6d 00 	lds	r24, 0x006D
+ 2b6:	8f 5f       	subi	r24, 0xFF	; 255
+ 2b8:	80 93 6d 00 	sts	0x006D, r24
+						if(radiationCount<=5){
+ 2bc:	80 91 6e 00 	lds	r24, 0x006E
+ 2c0:	86 30       	cpi	r24, 0x06	; 6
+ 2c2:	08 f0       	brcs	.+2      	; 0x2c6 <main+0x138>
+ 2c4:	40 c0       	rjmp	.+128    	; 0x346 <main+0x1b8>
+ 2c6:	8d 2f       	mov	r24, r29
+ 2c8:	9c 2f       	mov	r25, r28
+		PORTD = 0xFF;
+	}
+}
+
+void MotorForward(){
+	PORTC = 0b10000010; //Move Forward
+ 2ca:	25 bb       	out	0x15, r18	; 21
+ 2cc:	bf e8       	ldi	r27, 0x8F	; 143
+ 2ce:	ef e5       	ldi	r30, 0x5F	; 95
+ 2d0:	f1 e0       	ldi	r31, 0x01	; 1
+ 2d2:	b1 50       	subi	r27, 0x01	; 1
+ 2d4:	e0 40       	sbci	r30, 0x00	; 0
+ 2d6:	f0 40       	sbci	r31, 0x00	; 0
+ 2d8:	e1 f7       	brne	.-8      	; 0x2d2 <main+0x144>
+ 2da:	00 c0       	rjmp	.+0      	; 0x2dc <main+0x14e>
+ 2dc:	00 00       	nop
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+}
+
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+ 2de:	15 ba       	out	0x15, r1	; 21
+ 2e0:	bf e5       	ldi	r27, 0x5F	; 95
+ 2e2:	ee ea       	ldi	r30, 0xAE	; 174
+ 2e4:	fa e0       	ldi	r31, 0x0A	; 10
+ 2e6:	b1 50       	subi	r27, 0x01	; 1
+ 2e8:	e0 40       	sbci	r30, 0x00	; 0
+ 2ea:	f0 40       	sbci	r31, 0x00	; 0
+ 2ec:	e1 f7       	brne	.-8      	; 0x2e6 <main+0x158>
+ 2ee:	00 c0       	rjmp	.+0      	; 0x2f0 <main+0x162>
+ 2f0:	00 00       	nop
+							for(int a=0; a<7; a++){							// Move forward and scan 10 times
+								MotorForward();
+								_delay_ms(450);
+								MotorReset();
+								_delay_ms(3500);
+								if(Scan==1){
+ 2f2:	e0 91 60 00 	lds	r30, 0x0060
+ 2f6:	e1 30       	cpi	r30, 0x01	; 1
+ 2f8:	19 f5       	brne	.+70     	; 0x340 <main+0x1b2>
+									if (BlackLineCount!=4 || BlackLineCount!=6){
+										if (PINB &= 0b00000001){				// Scan the radiation area
+ 2fa:	e6 b3       	in	r30, 0x16	; 22
+ 2fc:	e1 70       	andi	r30, 0x01	; 1
+ 2fe:	e6 bb       	out	0x16, r30	; 22
+ 300:	ee 23       	and	r30, r30
+ 302:	f1 f0       	breq	.+60     	; 0x340 <main+0x1b2>
+											PORTA=0b10000000;					// Blue LED on
+ 304:	ab bb       	out	0x1b, r26	; 27
+ 306:	bf e3       	ldi	r27, 0x3F	; 63
+ 308:	ed e0       	ldi	r30, 0x0D	; 13
+ 30a:	f3 e0       	ldi	r31, 0x03	; 3
+ 30c:	b1 50       	subi	r27, 0x01	; 1
+ 30e:	e0 40       	sbci	r30, 0x00	; 0
+ 310:	f0 40       	sbci	r31, 0x00	; 0
+ 312:	e1 f7       	brne	.-8      	; 0x30c <main+0x17e>
+ 314:	00 c0       	rjmp	.+0      	; 0x316 <main+0x188>
+ 316:	00 00       	nop
+											_delay_ms(1000);
+											PORTA=0x00;							// Blue LED off
+ 318:	1b ba       	out	0x1b, r1	; 27
+											radiationCount++;					// Radiation count + 1
+ 31a:	e0 91 6e 00 	lds	r30, 0x006E
+ 31e:	ef 5f       	subi	r30, 0xFF	; 255
+ 320:	e0 93 6e 00 	sts	0x006E, r30
+											affectedGrid[i]=location;			// Store the location into array
+ 324:	b0 91 63 00 	lds	r27, 0x0063
+ 328:	eb 2f       	mov	r30, r27
+ 32a:	f0 e0       	ldi	r31, 0x00	; 0
+ 32c:	e9 59       	subi	r30, 0x99	; 153
+ 32e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 330:	10 91 6d 00 	lds	r17, 0x006D
+ 334:	10 83       	st	Z, r17
+											i++;
+ 336:	bf 5f       	subi	r27, 0xFF	; 255
+ 338:	b0 93 63 00 	sts	0x0063, r27
+											Scan=0;								// Disable scan function
+ 33c:	10 92 60 00 	sts	0x0060, r1
+ 340:	01 97       	sbiw	r24, 0x01	; 1
+					PORTD=0x00;						// Red LED off
+
+					if(BlackLineCount==1 || BlackLineCount==2 || BlackLineCount== 3 || BlackLineCount==5 || BlackLineCount==7 || BlackLineCount==8){
+						location++;
+						if(radiationCount<=5){
+							for(int a=0; a<7; a++){							// Move forward and scan 10 times
+ 342:	00 97       	sbiw	r24, 0x00	; 0
+ 344:	11 f6       	brne	.-124    	; 0x2ca <main+0x13c>
+									}
+								}
+							}
+						}
+					}
+					if (BlackLineCount==4){
+ 346:	80 91 66 00 	lds	r24, 0x0066
+ 34a:	84 30       	cpi	r24, 0x04	; 4
+ 34c:	d1 f5       	brne	.+116    	; 0x3c2 <main+0x234>
+ 34e:	87 2f       	mov	r24, r23
+ 350:	96 2f       	mov	r25, r22
+void MotorForward(){
+	PORTC = 0b10000010; //Move Forward
+}
+
+void MotorBackward(){
+	PORTC = 0b01000001; //Move Backward
+ 352:	55 bb       	out	0x15, r21	; 21
+ 354:	bf e9       	ldi	r27, 0x9F	; 159
+ 356:	e7 ef       	ldi	r30, 0xF7	; 247
+ 358:	f3 e0       	ldi	r31, 0x03	; 3
+ 35a:	b1 50       	subi	r27, 0x01	; 1
+ 35c:	e0 40       	sbci	r30, 0x00	; 0
+ 35e:	f0 40       	sbci	r31, 0x00	; 0
+ 360:	e1 f7       	brne	.-8      	; 0x35a <main+0x1cc>
+ 362:	00 c0       	rjmp	.+0      	; 0x364 <main+0x1d6>
+ 364:	00 00       	nop
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+}
+
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+ 366:	15 ba       	out	0x15, r1	; 21
+ 368:	bf eb       	ldi	r27, 0xBF	; 191
+ 36a:	e7 e2       	ldi	r30, 0x27	; 39
+ 36c:	f9 e0       	ldi	r31, 0x09	; 9
+ 36e:	b1 50       	subi	r27, 0x01	; 1
+ 370:	e0 40       	sbci	r30, 0x00	; 0
+ 372:	f0 40       	sbci	r31, 0x00	; 0
+ 374:	e1 f7       	brne	.-8      	; 0x36e <main+0x1e0>
+ 376:	00 c0       	rjmp	.+0      	; 0x378 <main+0x1ea>
+ 378:	00 00       	nop
+ 37a:	01 97       	sbiw	r24, 0x01	; 1
+								}
+							}
+						}
+					}
+					if (BlackLineCount==4){
+						for(int b=0; b<5; b++){
+ 37c:	00 97       	sbiw	r24, 0x00	; 0
+ 37e:	49 f7       	brne	.-46     	; 0x352 <main+0x1c4>
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+}
+
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+ 380:	15 ba       	out	0x15, r1	; 21
+ 382:	8f e7       	ldi	r24, 0x7F	; 127
+ 384:	9a e1       	ldi	r25, 0x1A	; 26
+ 386:	b6 e0       	ldi	r27, 0x06	; 6
+ 388:	81 50       	subi	r24, 0x01	; 1
+ 38a:	90 40       	sbci	r25, 0x00	; 0
+ 38c:	b0 40       	sbci	r27, 0x00	; 0
+ 38e:	e1 f7       	brne	.-8      	; 0x388 <main+0x1fa>
+ 390:	00 c0       	rjmp	.+0      	; 0x392 <main+0x204>
+ 392:	00 00       	nop
+void MotorBackward(){
+	PORTC = 0b01000001; //Move Backward
+}
+
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+ 394:	45 bb       	out	0x15, r20	; 21
+ 396:	ef e1       	ldi	r30, 0x1F	; 31
+ 398:	f6 ed       	ldi	r31, 0xD6	; 214
+ 39a:	83 e1       	ldi	r24, 0x13	; 19
+ 39c:	e1 50       	subi	r30, 0x01	; 1
+ 39e:	f0 40       	sbci	r31, 0x00	; 0
+ 3a0:	80 40       	sbci	r24, 0x00	; 0
+ 3a2:	e1 f7       	brne	.-8      	; 0x39c <main+0x20e>
+ 3a4:	00 c0       	rjmp	.+0      	; 0x3a6 <main+0x218>
+ 3a6:	00 00       	nop
+}
+
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+ 3a8:	15 ba       	out	0x15, r1	; 21
+ 3aa:	9f e7       	ldi	r25, 0x7F	; 127
+ 3ac:	ba e1       	ldi	r27, 0x1A	; 26
+ 3ae:	e6 e0       	ldi	r30, 0x06	; 6
+ 3b0:	91 50       	subi	r25, 0x01	; 1
+ 3b2:	b0 40       	sbci	r27, 0x00	; 0
+ 3b4:	e0 40       	sbci	r30, 0x00	; 0
+ 3b6:	e1 f7       	brne	.-8      	; 0x3b0 <main+0x222>
+ 3b8:	00 c0       	rjmp	.+0      	; 0x3ba <main+0x22c>
+ 3ba:	00 00       	nop
+						_delay_ms(2000);
+						MotorLeft();
+						_delay_ms(6500);				// Turn left
+						MotorReset();
+						_delay_ms(2000);
+						Scan=0;							// Disable scan function
+ 3bc:	10 92 60 00 	sts	0x0060, r1
+ 3c0:	3b c0       	rjmp	.+118    	; 0x438 <main+0x2aa>
+					}else if(BlackLineCount==6){
+ 3c2:	86 30       	cpi	r24, 0x06	; 6
+ 3c4:	c9 f5       	brne	.+114    	; 0x438 <main+0x2aa>
+ 3c6:	87 2f       	mov	r24, r23
+ 3c8:	96 2f       	mov	r25, r22
+void MotorForward(){
+	PORTC = 0b10000010; //Move Forward
+}
+
+void MotorBackward(){
+	PORTC = 0b01000001; //Move Backward
+ 3ca:	55 bb       	out	0x15, r21	; 21
+ 3cc:	ff e9       	ldi	r31, 0x9F	; 159
+ 3ce:	b7 ef       	ldi	r27, 0xF7	; 247
+ 3d0:	e3 e0       	ldi	r30, 0x03	; 3
+ 3d2:	f1 50       	subi	r31, 0x01	; 1
+ 3d4:	b0 40       	sbci	r27, 0x00	; 0
+ 3d6:	e0 40       	sbci	r30, 0x00	; 0
+ 3d8:	e1 f7       	brne	.-8      	; 0x3d2 <main+0x244>
+ 3da:	00 c0       	rjmp	.+0      	; 0x3dc <main+0x24e>
+ 3dc:	00 00       	nop
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+}
+
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+ 3de:	15 ba       	out	0x15, r1	; 21
+ 3e0:	ff eb       	ldi	r31, 0xBF	; 191
+ 3e2:	b7 e2       	ldi	r27, 0x27	; 39
+ 3e4:	e9 e0       	ldi	r30, 0x09	; 9
+ 3e6:	f1 50       	subi	r31, 0x01	; 1
+ 3e8:	b0 40       	sbci	r27, 0x00	; 0
+ 3ea:	e0 40       	sbci	r30, 0x00	; 0
+ 3ec:	e1 f7       	brne	.-8      	; 0x3e6 <main+0x258>
+ 3ee:	00 c0       	rjmp	.+0      	; 0x3f0 <main+0x262>
+ 3f0:	00 00       	nop
+ 3f2:	01 97       	sbiw	r24, 0x01	; 1
+						_delay_ms(6500);				// Turn left
+						MotorReset();
+						_delay_ms(2000);
+						Scan=0;							// Disable scan function
+					}else if(BlackLineCount==6){
+						for(int b=0; b<5; b++){
+ 3f4:	00 97       	sbiw	r24, 0x00	; 0
+ 3f6:	49 f7       	brne	.-46     	; 0x3ca <main+0x23c>
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+}
+
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+ 3f8:	15 ba       	out	0x15, r1	; 21
+ 3fa:	ff e7       	ldi	r31, 0x7F	; 127
+ 3fc:	8a e1       	ldi	r24, 0x1A	; 26
+ 3fe:	96 e0       	ldi	r25, 0x06	; 6
+ 400:	f1 50       	subi	r31, 0x01	; 1
+ 402:	80 40       	sbci	r24, 0x00	; 0
+ 404:	90 40       	sbci	r25, 0x00	; 0
+ 406:	e1 f7       	brne	.-8      	; 0x400 <main+0x272>
+ 408:	00 c0       	rjmp	.+0      	; 0x40a <main+0x27c>
+ 40a:	00 00       	nop
+void MotorBackward(){
+	PORTC = 0b01000001; //Move Backward
+}
+
+void MotorLeft(){
+	PORTC = 0b01000010; //Move Forward
+ 40c:	45 bb       	out	0x15, r20	; 21
+ 40e:	bf e7       	ldi	r27, 0x7F	; 127
+ 410:	e0 ec       	ldi	r30, 0xC0	; 192
+ 412:	f4 e1       	ldi	r31, 0x14	; 20
+ 414:	b1 50       	subi	r27, 0x01	; 1
+ 416:	e0 40       	sbci	r30, 0x00	; 0
+ 418:	f0 40       	sbci	r31, 0x00	; 0
+ 41a:	e1 f7       	brne	.-8      	; 0x414 <main+0x286>
+ 41c:	00 c0       	rjmp	.+0      	; 0x41e <main+0x290>
+ 41e:	00 00       	nop
+}
+
+void MotorReset(){
+	PORTC = 0b00000000; //Reset Motor
+ 420:	15 ba       	out	0x15, r1	; 21
+ 422:	8f e7       	ldi	r24, 0x7F	; 127
+ 424:	9a e1       	ldi	r25, 0x1A	; 26
+ 426:	b6 e0       	ldi	r27, 0x06	; 6
+ 428:	81 50       	subi	r24, 0x01	; 1
+ 42a:	90 40       	sbci	r25, 0x00	; 0
+ 42c:	b0 40       	sbci	r27, 0x00	; 0
+ 42e:	e1 f7       	brne	.-8      	; 0x428 <main+0x29a>
+ 430:	00 c0       	rjmp	.+0      	; 0x432 <main+0x2a4>
+ 432:	00 00       	nop
+						_delay_ms(2000);
+						MotorLeft();
+						_delay_ms(6800);				// Turn left
+						MotorReset();
+						_delay_ms(2000);
+						Scan=0;
+ 434:	10 92 60 00 	sts	0x0060, r1
+					}
+					
+					
+				}
+		}
+		if (DisplayCondition==1){
+ 438:	80 91 64 00 	lds	r24, 0x0064
+ 43c:	81 30       	cpi	r24, 0x01	; 1
+ 43e:	09 f0       	breq	.+2      	; 0x442 <main+0x2b4>
+ 440:	b4 ce       	rjmp	.-664    	; 0x1aa <main+0x1c>
+			while(1){	
+				radiationCountDisplay();				// Display total radiation area counted
+				if(radiationCount==0){
+					PORTA = 0x3F;
+ 442:	cf e3       	ldi	r28, 0x3F	; 63
+					
+				}
+		}
+		if (DisplayCondition==1){
+			while(1){	
+				radiationCountDisplay();				// Display total radiation area counted
+ 444:	0e 94 57 00 	call	0xae	; 0xae <radiationCountDisplay>
+				if(radiationCount==0){
+ 448:	80 91 6e 00 	lds	r24, 0x006E
+ 44c:	81 11       	cpse	r24, r1
+ 44e:	02 c0       	rjmp	.+4      	; 0x454 <main+0x2c6>
+					PORTA = 0x3F;
+ 450:	cb bb       	out	0x1b, r28	; 27
+ 452:	f8 cf       	rjmp	.-16     	; 0x444 <main+0x2b6>
+				}else{
+					affectedGridDisplay();				// Display the location of affected grid
+ 454:	0e 94 7a 00 	call	0xf4	; 0xf4 <affectedGridDisplay>
+ 458:	f5 cf       	rjmp	.-22     	; 0x444 <main+0x2b6>
+
+0000045a <__tablejump2__>:
+ 45a:	ee 0f       	add	r30, r30
+ 45c:	ff 1f       	adc	r31, r31
+
+0000045e <__tablejump__>:
+ 45e:	05 90       	lpm	r0, Z+
+ 460:	f4 91       	lpm	r31, Z
+ 462:	e0 2d       	mov	r30, r0
+ 464:	09 94       	ijmp
+
+00000466 <_exit>:
+ 466:	f8 94       	cli
+
+00000468 <__stop_program>:
+ 468:	ff cf       	rjmp	.-2      	; 0x468 <__stop_program>
